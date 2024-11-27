@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Expiry Date Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6fc;
+        }
+        .calculator-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .calculator {
+            max-width: 450px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            text-align: center;
+            border-top: 6px solid #020FCA;
+        }
+        .calculator h2 {
+            font-size: 1.8em;
+            color: #020FCA;
+            margin-bottom: 20px;
+        }
+        .calculator label {
+            font-size: 1em;
+            color: #333;
+            text-align: left;
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .calculator input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+        .calculator input:focus {
+            border-color: #020FCA;
+            outline: none;
+        }
+        .calculator button {
+            width: 100%;
+            padding: 12px;
+            background-color: #020FCA;
+            color: #ffffff;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .calculator button:hover {
+            background-color: #001c9f;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+            font-size: 1.2em;
+        }
+        .result strong {
+            color: #020FCA;
+        }
+        .amplelogic-button {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .amplelogic-button a {
+            text-decoration: none;
+            background-color: #020FCA;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: bold;
+            display: inline-block;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .amplelogic-button a:hover {
+            background-color: #001c9f;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator-container">
+    <div class="calculator">
+        <h2>Medicine Expiry Date Calculator</h2>
+        <label for="manufactureDate">Manufacture Date:</label>
+        <input type="date" id="manufactureDate">
+
+        <label for="shelfLife">Shelf Life (in months):</label>
+        <input type="number" id="shelfLife" placeholder="Enter shelf life in months">
+
+        <button onclick="calculateExpiryDate()">Calculate Expiry Date</button>
+
+        <div class="result" id="result"></div>
+
+        <div class="amplelogic-button">
+            <a href="https://www.amplelogic.com" target="_blank">Go to AmpleLogic</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function calculateExpiryDate() {
+        const manufactureDate = document.getElementById('manufactureDate').value;
+        const shelfLife = parseInt(document.getElementById('shelfLife').value);
+
+        if (!manufactureDate || isNaN(shelfLife)) {
+            document.getElementById('result').innerText = "Please enter both manufacture date and shelf life.";
+            return;
+        }
+
+        const manufactureDateObj = new Date(manufactureDate);
+        const expiryDate = new Date(manufactureDateObj.setMonth(manufactureDateObj.getMonth() + shelfLife));
+
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('result').innerHTML = `
+            <p><strong>Expiry Date:</strong> ${expiryDate.toLocaleDateString(undefined, options)}</p>
+        `;
+    }
+</script>
+
+</body>
+</html>
