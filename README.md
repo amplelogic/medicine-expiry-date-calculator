@@ -20,7 +20,10 @@ The **Medicine Expiry Date Calculator** is a web-based tool designed for pharmac
    ```bash
    git clone https://github.com/your-username/medicine-expiry-date-calculator.git
 
-2. cd medicine-expiry-date-calculator
+2. Navigate to the project directory:
+   ```bash
+   cd medicine-expiry-date-calculator
+   
 3. Open the index.html file in a web browser.
 4. Select the manufacture date using the custom calendar.
 5. Enter the shelf life in months.
