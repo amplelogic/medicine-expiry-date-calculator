@@ -11,16 +11,15 @@ The **Medicine Expiry Date Calculator** is a web-based tool designed for pharmac
 - **Additional Links**: Includes quick navigation to external resources, such as corporate websites.
 
 ## Technologies Used
-- **HTML5** for structure  
-- **CSS3** for styling  
-- **Vanilla JavaScript** for interactivity  
+- **HTML** for structure  
+- **CSS** for styling  
+- **JavaScript** for interactivity  
 
 ## How to Use
 1. Clone or download this repository:
    ```bash
    git clone https://github.com/your-username/medicine-expiry-date-calculator.git
-   
-   ```bash
+
 2. cd medicine-expiry-date-calculator
 3. Open the index.html file in a web browser.
 4. Select the manufacture date using the custom calendar.
